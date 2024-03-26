@@ -18,10 +18,11 @@ Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal masterm
 
 url =  "https://tmdb.lewagon.com/movie/top_rated"
 
-5.times do |i|
+1.times do |i|
   movie_sterialized  = URI.open(url).read
   movies = JSON.parse(movie_sterialized)
   movies["results"].each do |movie|
+    puts "Movie create : #{movie["title"]}"
     base_url = "https://image.tmdb.org/t/p/original"
     Movie.create(
       title: movie["tiltle"],
