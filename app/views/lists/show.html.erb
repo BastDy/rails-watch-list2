@@ -1,0 +1,19 @@
+<div class="banner d-flex align-items-center justify-content-center ">
+  <h1> <%= @list.name %></h1>
+</div>
+
+<div class="container my-3">
+  <div class="container d-flex justify-content-between py-3">
+      <h2>Mes films</h2>
+      <%= link_to "Nouvelle liste", "#", class: "btn btn-success" %>
+    </div>
+  <div class="container py-3 text-center row">
+    <% @list.movies.each do |movie| %>
+      <div class="col">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= movie.poster_url%>)">
+          <%= movie.title %>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
